@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr code generator</title>
+    <style>
+        body,html{
+            margin : 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container{
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .input{
+            background-color: white;
+            padding: 50px 100px;
+            text-align: center;
+            border: 5px solid brown;
+            border-radius: 20px;
+            
+        }
+
+        p{
+            font-size: 200%;
+        }
+        p:hover{
+            /* transform: scale(1.2); */
+            color: aqua;
+
+            transition: 1s;
+        }
+
+        input{
+            height: 50px;
+            width: 250px;
+            border-radius: 20px;
+        }
+
+        input:focus{
+           transform: scale(1.2);
+            transition: 1s;
+            /* color: purple; */
+        }
+
+        button{
+            background-color: blue;
+            height: 50px;
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        button:hover{
+            background-color: aqua;
+            transform: scale(1.5);
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "input">
+            <p>QR code</p>
+            <input id="inputText" type = "text" placeholder="Enter url or text"><br><br>
+            <button onclick="generate()">Generate QR</button>
+        </div>
+        <br><br>
+        <div class = "qr">
+            <div class = "img">
+                <img src = "" id = "imgqr"><br><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ur = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+        let inputText = document.getElementById("inputText");
+        let img = document.getElementById("imgqr");
+
+        function generate(){
+            imgqr.src = ur + inputText.value;
+        }
+
+    </script>
+</body>
+</html>
